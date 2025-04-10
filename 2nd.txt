@@ -1,0 +1,14 @@
+create table Emp(empno int primary key,ename varchar(25),
+job varchar(20),mgr  int,sal decimal(10,2));
+alter table Emp add commission decimal(8,2); 
+INSERT INTO Emp (empno, ename, job, 
+mgr, sal,commission) VALUES
+ (101, 'John Doe', 'Manager', NULL, 50000, 2000),
+(102, 'Jane Smith', 'Developer', 101, 45000, 1500),
+ (103, 'Bob Johnson', 'Analyst', 101, 40000, 1000),
+(104, 'John Smith', 'Cashier', 101, 40000, 1800),
+(105, 'Bob Doe', 'Developer', 101, 60000, 2000);
+alter table Emp modify job varchar(100); 
+alter  table Emp rename to Emp1; 
+delete from Emp where empno=105;
+

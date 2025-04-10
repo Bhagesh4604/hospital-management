@@ -1,0 +1,21 @@
+create database if not exists expl;
+use expl;
+create table Employee(empno int,ename varchar(25),job varchar(20),manager_no int,sal decimal(10,2),commission decimal(8,2));
+desc Employee;
+create user 'aiml_b3'@'localhost' identified by 'aiml';
+grant all privileges on Employee to 'aiml_b3'@'localhost';
+SET autocommit=0;
+INSERT INTO Employee (EMPNO, ENAME, JOB, 
+MANAGER_NO, SAL,COMMISSION) VALUES
+ (101, 'John Doe', 'Manager', NULL, 50000, 2000),
+(102, 'Jane Smith', 'Developer', 101, 45000, 1500),
+ (103, 'Bob Johnson', 'Analyst', 101, 40000, 1000);
+select * from Employee;
+rollback;
+select * from Employee;
+alter table Employee add primary key(empno);
+alter table Employee modify ename varchar(50) NOT NULL;
+desc Employee;
+INSERT INTO EMPLOYEE (EMPNO,ENAME,JOB,MANAGER_NO,SAL,COMMISSION) VALUES (105,NULL,’MANAGER’,NULL,50000,2000);
+
+
